@@ -22,21 +22,21 @@ default: all
 
 all: vet fmt test build
 
-build: install_deps windows darwin linux
+build: windows darwin linux
 
-linux:
+linux: install_deps
 	$(info ******************** building for linux amd64 ********************)
 	GOOS=linux GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-${GOARCH}.exe ${TARGET}; 
 	$(info ******************** building for linux arm64 ********************)
 	GOOS=linux GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-${GOARCH}.exe ${TARGET}; 
 
-darwin:
+darwin: install_deps
 	$(info ******************** building for darwin amd64 ********************)
 	GOOS=darwin GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-${GOARCH}.exe ${TARGET}; 
 	$(info ******************** building for darwin arm64 ********************)
 	GOOS=darwin GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-${GOARCH}.exe ${TARGET}; 
 
-windows:
+windows: install_deps
 	$(info ******************** building for windows ********************)
 	GOOS=windows GOARCH=${GOARCH} go build ${LDFLAGS} -o $(BIN)/${BINARY}-windows-${GOARCH}.exe ${TARGET}; 
 

@@ -51,16 +51,34 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/rajrohanyadav/dtx.git
    ```
-1. Install Go modules
-   ```sh
-   go install_deps
-   ```
+2. Build the executables
+    ```sh
+    make build
+    ```
 
 ## Usage
 _For detailed usecase and  examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
+- [ ] Convert
+  - [ ] JSON <> XML
+  - [ ] Timestamp
+  - [ ] Number base
+  - [ ] cron parser
+- [ ] Encoder/Decoders
+  - [ ] Base64
+  - [ ] JWT
+- [ ] Generators
+  - [ ] Hash
+  - [ ] UUID
+  - [ ] Lorem Ipsum
+  - [ ] Checksum
+- [ ] Formatters
+  - [ ] JSON
+  - [ ] SQL
+  - [ ] XML
 
+See the [open issues](https://github.com/rajrohanyadav/dtx/issues) for a full list of proposed features (and known issues).
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
@@ -80,6 +98,9 @@ Distributed under the Apache License. See `LICENSE.txt` for more information.
 Rohan Yadav - rajrohanyadav@gmail.com
 
 ## Acknowledgments
+- I want to create a lightweight, platform independent Command Line Utility (CLI) with the tools similar to [DevToys](https://devtoys.app/).
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
