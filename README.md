@@ -5,7 +5,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+![Test workflow][test-workflow-url]
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <details>
 <summary>Table of Contents</summary>
@@ -37,13 +38,14 @@
 ## About the Project
 
 ## Built With
+[![Go][go-shield]][go-url]
+
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 * Go
-* Cobra
 * Cobra-cli
 
 ### Installation
@@ -104,16 +106,20 @@ Rohan Yadav - rajrohanyadav@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/rajrohanyadav/dtx.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/rajrohanyadav/dtx.svg
 [contributors-url]: https://github.com/rajrohanyadav/dtx/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/rajrohanyadav/dtx.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/rajrohanyadav/dtx.svg
 [forks-url]: https://github.com/rajrohanyadav/dtx/network/members
-[stars-shield]: https://img.shields.io/github/stars/rajrohanyadav/dtx.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/rajrohanyadav/dtx.svg
 [stars-url]: https://github.com/rajrohanyadav/dtx/stargazers
-[issues-shield]: https://img.shields.io/github/issues/rajrohanyadav/dtx.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/rajrohanyadav/dtx.svg
 [issues-url]: https://github.com/rajrohanyadav/dtx/issues
-[license-shield]: https://img.shields.io/github/license/rajrohanyadav/dtx.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/rajrohanyadav/dtx.svg
 [license-url]: https://github.com/rajrohanyadav/dtx/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/rajrohanyadav
+[test-workflow]: Test
+[test-workflow-url]: https://github.com/rajrohanyadav/dtx/actions/workflows/test.yml/badge.svg
+<!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/rajrohanyadav -->
 <!-- [product-screenshot]: images/screenshot.png -->
+[go-shield]: https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white
+[go-url]: https://go.dev/

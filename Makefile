@@ -2,7 +2,6 @@ PROJECT_NAME=dtx
 BIN="bin"
 SRC=$(shell find . -name "*.go")
 TARGET?=github.com/rajrohanyadav/dtx
-GOARCH?=amd64
 
 BINARY ?= ${PROJECT_NAME}
 
@@ -22,23 +21,23 @@ default: all
 
 all: vet fmt test build
 
-build: windows darwin linux
+build: clean windows darwin linux
 
 linux: install_deps
 	$(info ******************** building for linux amd64 ********************)
-	GOOS=linux GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-${GOARCH}.exe ${TARGET}; 
+	@GOOS=linux GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-amd64 ${TARGET}; 
 	$(info ******************** building for linux arm64 ********************)
-	GOOS=linux GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-${GOARCH}.exe ${TARGET}; 
+	@GOOS=linux GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-linux-arm64 ${TARGET}; 
 
 darwin: install_deps
 	$(info ******************** building for darwin amd64 ********************)
-	GOOS=darwin GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-${GOARCH}.exe ${TARGET}; 
+	@GOOS=darwin GOARCH=amd64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-amd64 ${TARGET}; 
 	$(info ******************** building for darwin arm64 ********************)
-	GOOS=darwin GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-${GOARCH}.exe ${TARGET}; 
+	@GOOS=darwin GOARCH=arm64 go build ${LDFLAGS} -o $(BIN)/${BINARY}-darwin-arm64 ${TARGET}; 
 
 windows: install_deps
 	$(info ******************** building for windows ********************)
-	GOOS=windows GOARCH=${GOARCH} go build ${LDFLAGS} -o $(BIN)/${BINARY}-windows-${GOARCH}.exe ${TARGET}; 
+	@GOOS=windows GOARCH=${GOARCH} go build ${LDFLAGS} -o $(BIN)/${BINARY}-windows.exe ${TARGET}; 
 
 fmt:
 	$(info ******************** checking formatting ********************)
