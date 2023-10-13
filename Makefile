@@ -7,8 +7,8 @@ GOARCH?=amd64
 BINARY ?= ${PROJECT_NAME}
 
 VERSION = 1.0.0
-# COMMIT = $(shell git rev-parse --short=7 HEAD)
-# BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
+COMMIT = $(shell git rev-parse --short=7 HEAD)
+BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 
 LDFLAGS = -ldflags "-X main.VERSION=${VERSION} -X main.commit=${COMMIT} -X main.BRANCH=${BRANCH} -X main.BUILD_NUMBER=${BUILD_NUMBER}"
 
