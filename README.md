@@ -57,7 +57,7 @@ To get a local copy up and running follow these simple example steps.
     ```
 
 ## Usage
-_For detailed usecase and  examples, please refer to the [Documentation](https://example.com)_
+_For detailed usecase and  examples, please refer to the [Documentation](https://rajrohanyadav.github.io/dtx/)_
 
 ## Roadmap
 - [ ] Convert
