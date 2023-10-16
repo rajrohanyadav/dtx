@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/google/uuid"
 	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
 )
@@ -26,20 +27,18 @@ import (
 var generateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate the specified resource",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Long:  `Generate the specified resource.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		typ, _ := cmd.Flags().GetString("type")
 		if typ == "uuid" {
-			res, err := generateUUID()
+			num, _ := cmd.Flags().GetInt("count")
+			res, err := generateUUID(num)
 			if err != nil {
 				fmt.Println(err)
 			}
-			fmt.Println(res)
+			for _, s := range res {
+				fmt.Println(s)
+			}
 		}
 	},
 }
@@ -47,8 +46,14 @@ to quickly create a Cobra application.`,
 func init() {
 	rootCmd.AddCommand(generateCmd)
 	utils.AddTypeFlag(generateCmd)
+	utils.AddNumberFlag(generateCmd)
 }
 
-func generateUUID() (string, error) {
-	return "uuid", nil
+func generateUUID(n int) ([]string, error) {
+	var uuids []string
+	for i := 0; i < n; i++ {
+		id := uuid.New()
+		uuids = append(uuids, id.String())
+	}
+	return uuids, nil
 }
