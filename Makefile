@@ -5,7 +5,7 @@ TARGET?=github.com/rajrohanyadav/dtx
 
 BINARY ?= ${PROJECT_NAME}
 
-VERSION = 1.0.0
+VERSION = 0.0.1
 COMMIT = $(shell git rev-parse --short=7 HEAD)
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 

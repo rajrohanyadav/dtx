@@ -22,9 +22,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// decodeCmd represents the decode command
-var decodeCmd = &cobra.Command{
-	Use:   "decode",
+// encodeCmd represents the encode command
+var encodeCmd = &cobra.Command{
+	Use:   "encode",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -35,10 +35,10 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		op, _ := cmd.Flags().GetString("type")
 		if op == "b64" {
-			b64Str, _ := cmd.Flags().GetString("str")
-			res, err := DecodeB64ToString(b64Str)
+			str, _ := cmd.Flags().GetString("str")
+			res, err := EncodeStringToB64(str)
 			if err != nil {
-				fmt.Println("Error decoding from base 64")
+				fmt.Println("Error converting to base 64")
 			}
 			fmt.Println(res)
 		}
@@ -46,15 +46,12 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	rootCmd.AddCommand(decodeCmd)
+	rootCmd.AddCommand(encodeCmd)
+	// encodeCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
-	encodeCmd.Flags().StringP("str", "s", "", "string to decode")
+	encodeCmd.Flags().StringP("str", "s", "", "string to encode")
 }
 
-func DecodeB64ToString(b64Str string) (string, error){
-	res, err := b64.StdEncoding.DecodeString(b64Str)
-	if err != nil {
-		return "", err
-	}
-	return string(res), nil
+func EncodeStringToB64(str string) (string, error){
+	return b64.StdEncoding.EncodeToString([]byte(str)), nil
 }
