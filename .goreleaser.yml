@@ -48,3 +48,13 @@ changelog:
 release:
   prerelease: auto
   mode: append
+brews:
+  -
+    name: dtx
+    homepage: "https://github.com/rajrohanyadav/dtx"
+    tap:
+      owner: rajrohanyadav
+      name: homebrew-rajrohanyadav
+    commit_author:
+      name: rajrohanyadav
+      email: rajrohanyadav@gmail.com
