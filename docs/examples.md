@@ -26,15 +26,15 @@
 ### Base64
 
 ```sh
-> dtx encode -t b64 -s user:password
-dXNlcjpwYXNzd29yZA==
+dtx encode -t b64 -s user:password
 ```
+*_Output_*: `dXNlcjpwYXNzd29yZA==`
 
 ## Decode
 
 ### Base64
 
 ```sh
-> dtx decode -t b64 -s dXNlcjpwYXNzd29yZA==
-user:password
+dtx decode -t b64 -s dXNlcjpwYXNzd29yZA==
 ```
+*_Output_*: `user:password`

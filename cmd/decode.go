@@ -19,6 +19,7 @@ import (
 	b64 "encoding/base64"
 	"fmt"
 
+	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -47,8 +48,10 @@ to quickly create a Cobra application.`,
 
 func init() {
 	rootCmd.AddCommand(decodeCmd)
-	encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
-	encodeCmd.Flags().StringP("str", "s", "", "string to decode")
+	// encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
+	// encodeCmd.Flags().StringP("str", "s", "", "string to decode")
+	utils.AddTypeFlag(decodeCmd)
+	utils.AddStringFlag(decodeCmd)
 }
 
 func DecodeB64ToString(b64Str string) (string, error) {

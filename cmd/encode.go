@@ -20,6 +20,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/rajrohanyadav/dtx/cmd/utils"
 )
 
 // encodeCmd represents the encode command
@@ -48,8 +49,10 @@ to quickly create a Cobra application.`,
 func init() {
 	rootCmd.AddCommand(encodeCmd)
 	// encodeCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
-	encodeCmd.Flags().StringP("str", "s", "", "string to encode")
+	// encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
+	// encodeCmd.Flags().StringP("str", "s", "", "string to encode")
+	utils.AddTypeFlag(encodeCmd)
+	utils.AddStringFlag(encodeCmd)
 }
 
 func EncodeStringToB64(str string) (string, error) {
