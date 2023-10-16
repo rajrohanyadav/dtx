@@ -19,8 +19,8 @@ import (
 	b64 "encoding/base64"
 	"fmt"
 
-	"github.com/spf13/cobra"
 	"github.com/rajrohanyadav/dtx/cmd/utils"
+	"github.com/spf13/cobra"
 )
 
 // encodeCmd represents the encode command
