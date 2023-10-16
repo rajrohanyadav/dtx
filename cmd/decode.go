@@ -51,7 +51,7 @@ func init() {
 	encodeCmd.Flags().StringP("str", "s", "", "string to decode")
 }
 
-func DecodeB64ToString(b64Str string) (string, error){
+func DecodeB64ToString(b64Str string) (string, error) {
 	res, err := b64.StdEncoding.DecodeString(b64Str)
 	if err != nil {
 		return "", err

@@ -52,6 +52,6 @@ func init() {
 	encodeCmd.Flags().StringP("str", "s", "", "string to encode")
 }
 
-func EncodeStringToB64(str string) (string, error){
+func EncodeStringToB64(str string) (string, error) {
 	return b64.StdEncoding.EncodeToString([]byte(str)), nil
 }
