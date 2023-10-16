@@ -1,3 +1,5 @@
-# First page of the site
+# Home
 
-Examples
+Basic description of the project. 
+
+For detailed examples, see <a href="/examples">examples</a>
