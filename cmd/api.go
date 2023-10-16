@@ -25,7 +25,7 @@ import (
 var apiCmd = &cobra.Command{
 	Use:   "api",
 	Short: "api [get|post|put|delete]",
-	Long: `api [get|post|put|delete]. Not implemented yet`,
+	Long:  `api [get|post|put|delete]. Not implemented yet`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("api called")
 	},

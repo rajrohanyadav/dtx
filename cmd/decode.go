@@ -27,7 +27,7 @@ import (
 var decodeCmd = &cobra.Command{
 	Use:   "decode",
 	Short: "Decode [b64|jwt]",
-	Long: `Decode [b64|jwt]`,
+	Long:  `Decode [b64|jwt]`,
 	Run: func(cmd *cobra.Command, args []string) {
 		op, _ := cmd.Flags().GetString("type")
 		if op == "b64" {

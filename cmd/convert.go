@@ -25,7 +25,7 @@ import (
 var convertCmd = &cobra.Command{
 	Use:   "convert",
 	Short: "convert from t1 to t2",
-	Long: `convert from t1 to t2. Not implemented yet`,
+	Long:  `convert from t1 to t2. Not implemented yet`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("convert called")
 	},

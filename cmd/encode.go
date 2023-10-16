@@ -27,7 +27,7 @@ import (
 var encodeCmd = &cobra.Command{
 	Use:   "encode",
 	Short: "Encode [b64|jwt]",
-	Long: `Encode [b64|jwt]`,
+	Long:  `Encode [b64|jwt]`,
 	Run: func(cmd *cobra.Command, args []string) {
 		op, _ := cmd.Flags().GetString("type")
 		if op == "b64" {
