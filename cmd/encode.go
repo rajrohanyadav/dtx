@@ -26,13 +26,8 @@ import (
 // encodeCmd represents the encode command
 var encodeCmd = &cobra.Command{
 	Use:   "encode",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Encode [b64|jwt]",
+	Long: `Encode [b64|jwt]`,
 	Run: func(cmd *cobra.Command, args []string) {
 		op, _ := cmd.Flags().GetString("type")
 		if op == "b64" {
@@ -48,9 +43,6 @@ to quickly create a Cobra application.`,
 
 func init() {
 	rootCmd.AddCommand(encodeCmd)
-	// encodeCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	// encodeCmd.Flags().StringP("type", "t", "b64", "What do you want to encode to")
-	// encodeCmd.Flags().StringP("str", "s", "", "string to encode")
 	utils.AddTypeFlag(encodeCmd)
 	utils.AddStringFlag(encodeCmd)
 }
