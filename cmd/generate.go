@@ -18,16 +18,16 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/google/uuid"
 	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
-	"github.com/google/uuid"
 )
 
 // generateCmd represents the generate command
 var generateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate the specified resource",
-	Long: `Generate the specified resource.`,
+	Long:  `Generate the specified resource.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		typ, _ := cmd.Flags().GetString("type")
 		if typ == "uuid" {
@@ -51,7 +51,7 @@ func init() {
 
 func generateUUID(n int) ([]string, error) {
 	var uuids []string
-	for i:=0;i<n;i++ {
+	for i := 0; i < n; i++ {
 		id := uuid.New()
 		uuids = append(uuids, id.String())
 	}
