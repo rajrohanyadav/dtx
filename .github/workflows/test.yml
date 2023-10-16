@@ -27,60 +27,29 @@ jobs:
           version: latest
           args: --verbose
 
-  # test-unix:
-  #   strategy:
-  #     fail-fast: false
-  #     matrix:
-  #       platform:
-  #       - ubuntu
-  #       - macOS
-  #       go:
-  #       - 20
-  #   name: '${{ matrix.platform }} | 1.${{ matrix.go }}.x'
-  #   runs-on: ${{ matrix.platform }}-latest
-  #   steps:
+  test-unix:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+        - ubuntu
+        - macOS
+        go:
+        - 20
+    name: '${{ matrix.platform }} | 1.${{ matrix.go }}.x'
+    runs-on: ${{ matrix.platform }}-latest
+    steps:
 
-  #   - uses: actions/setup-go@v4
-  #     with:
-  #       go-version: 1.${{ matrix.go }}.x
+    - uses: actions/setup-go@v4
+      with:
+        go-version: 1.${{ matrix.go }}.x
 
-  #   - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.0
 
-  #   - uses: actions/cache@v3
-  #     with:
-  #       path: ~/go/pkg/mod
-  #       key: ${{ runner.os }}-1.${{ matrix.go }}.x-${{ hashFiles('**/go.sum') }}
-  #       restore-keys: ${{ runner.os }}-1.${{ matrix.go }}.x-
+    - uses: actions/cache@v3
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-1.${{ matrix.go }}.x-${{ hashFiles('**/go.sum') }}
+        restore-keys: ${{ runner.os }}-1.${{ matrix.go }}.x-
 
-  #   - run: PATH=$HOME/go/bin/:$PATH make test build
-
-  # test-win:
-  #   name: MINGW64
-  #   defaults:
-  #     run:
-  #       shell: msys2 {0}
-  #   runs-on: windows-latest
-  #   steps:
-
-  #   - shell: bash
-  #     run: git config --global core.autocrlf input
-
-  #   - uses: msys2/setup-msys2@v2
-  #     with:
-  #       msystem: MINGW64
-  #       update: true
-  #       install: >
-  #         git
-  #         make
-  #         unzip
-  #         mingw-w64-x86_64-go
-
-  #   - uses: actions/checkout@v4.1.0
-
-  #   - uses: actions/cache@v3
-  #     with:
-  #       path: ~/go/pkg/mod
-  #       key: ${{ runner.os }}-${{ matrix.go }}-${{ hashFiles('**/go.sum') }}
-  #       restore-keys: ${{ runner.os }}-${{ matrix.go }}-
-
-  #   - run: PATH=$HOME/go/bin:$PATH make test build
+    - run: PATH=$HOME/go/bin/:$PATH make test build

@@ -52,7 +52,7 @@ brews:
   -
     name: dtx
     homepage: "https://github.com/rajrohanyadav/dtx"
-    tap:
+    repository:
       owner: rajrohanyadav
       name: homebrew-rajrohanyadav
     commit_author:

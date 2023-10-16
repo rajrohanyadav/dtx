@@ -21,8 +21,9 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#homebrew">Homebrew</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#build-from-source">Build From Source</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -42,13 +43,26 @@
 
 
 ## Getting Started
-To get a local copy up and running follow these simple example steps.
+Use any of the following ways to install `dtx`
 
-### Prerequisites
+### Homebrew
+```sh
+brew tap rajrohanyadav/rajrohanyadav
+brew install dtx
+```
+
+### GitHub
+* Go to [dtx releases](https://github.com/rajrohanyadav/dtx/releases/)
+* Download the executable for you Operating system
+* Add it to your `$PATH`
+
+### Build from source
+
+#### Prerequisites
 * Go
 * Cobra-cli
 
-### Installation
+#### Steps to build locally
 1. Clone the repo
    ```sh
    git clone https://github.com/rajrohanyadav/dtx.git
