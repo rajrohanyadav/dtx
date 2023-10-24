@@ -33,7 +33,6 @@ jobs:
       matrix:
         platform:
         - ubuntu
-        - macOS
         go:
         - 20
     name: '${{ matrix.platform }} | 1.${{ matrix.go }}.x'

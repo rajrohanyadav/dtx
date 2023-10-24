@@ -5,7 +5,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-![Test workflow][test-workflow-url]
+![Build workflow][build-workflow-url]
+[![codecov](https://codecov.io/gh/rajrohanyadav/dtx/graph/badge.svg?token=KD26F6HJY4)](https://codecov.io/gh/rajrohanyadav/dtx)
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <details>
@@ -130,8 +131,8 @@ Rohan Yadav - rajrohanyadav@gmail.com
 [issues-url]: https://github.com/rajrohanyadav/dtx/issues
 [license-shield]: https://img.shields.io/github/license/rajrohanyadav/dtx.svg
 [license-url]: https://github.com/rajrohanyadav/dtx/blob/master/LICENSE.txt
-[test-workflow]: Test
-[test-workflow-url]: https://github.com/rajrohanyadav/dtx/actions/workflows/test.yml/badge.svg
+[build-workflow]: Build
+[build-workflow-url]: https://github.com/rajrohanyadav/dtx/actions/workflows/build.yml/badge.svg
 <!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/rajrohanyadav -->
 <!-- [product-screenshot]: images/screenshot.png -->

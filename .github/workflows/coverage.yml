@@ -1,0 +1,30 @@
+name: Go test coverage check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+
+    go-test-coverage:
+        runs-on: ubuntu-latest
+        steps:
+
+        - uses: actions/setup-go@v4
+          with:
+            go-version: '1.20'
+        
+        - uses: actions/checkout@v4.1.0
+
+        - name: generate test coverage
+          run: |
+            go test -v ./... -covermode=count -coverprofile=coverage.out
+            go tool cover -func=coverage.out -o=coverage.out
+
+        - name: Upload coverage reports to Codecov
+          uses: codecov/codecov-action@v3
+          env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
