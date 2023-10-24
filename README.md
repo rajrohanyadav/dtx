@@ -133,8 +133,6 @@ Rohan Yadav - rajrohanyadav@gmail.com
 [license-url]: https://github.com/rajrohanyadav/dtx/blob/master/LICENSE.txt
 [build-workflow]: Build
 [build-workflow-url]: https://github.com/rajrohanyadav/dtx/actions/workflows/build.yml/badge.svg
-[coverage-workflow]: Coverage
-[coverage-workflow-url]: https://github.com/rajrohanyadav/dtx/actions/workflows/coverage.yml/badge.svg
 <!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/rajrohanyadav -->
 <!-- [product-screenshot]: images/screenshot.png -->
