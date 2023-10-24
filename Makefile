@@ -57,6 +57,11 @@ test: install_deps
 	go clean -testcache
 	go test -v ./...
 
+test-coverage:
+	$(info ******************** running tests with coverage ********************)
+	go clean -testcache
+	go test ./... -cover
+
 install_deps:
 	$(info ******************** downloading dependencies ********************)
 	go get -v ./...

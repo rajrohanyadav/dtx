@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/rajrohanyadav/dtx/cmd"
+import cmd "github.com/rajrohanyadav/dtx/cmd/dtx"
 
 func main() {
 	cmd.Execute()
