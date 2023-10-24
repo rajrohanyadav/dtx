@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func newApiCmd() *cobra.Command {
+func newAPICmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "api",
 		Short: "api [get|post|put|delete]",

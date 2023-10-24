@@ -40,7 +40,7 @@ func newRootCommand() *cobra.Command {
 	encodeCmd := newEncodeCmd()
 	decodeCmd := newDecodeCmd()
 	convertCmd := newConvertCmd()
-	apiCmd := newApiCmd()
+	apiCmd := newAPICmd()
 	generateCmd := newGenerateCmd()
 
 	cmd.AddCommand(encodeCmd)
