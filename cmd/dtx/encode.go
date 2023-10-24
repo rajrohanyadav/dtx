@@ -36,12 +36,12 @@ func newEncodeCmd() *cobra.Command {
 					fmt.Println("Error converting to base 64")
 					return err
 				}
-				fmt.Println(res)
+				fmt.Fprintln(cmd.OutOrStdout(), res)
 			}
 			return nil
 		},
 	}
-	utils.AddTypeFlag(cmd)
-	utils.AddStringFlag(cmd)
+	addTypeFlag(cmd)
+	addStringFlag(cmd)
 	return cmd
 }

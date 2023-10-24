@@ -32,7 +32,6 @@ func newRootCommand() *cobra.Command {
 		Go to https://rajrohanyadav.github.io/dtx/ for detailed examples and usecases.
 		`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("root ran")
 			return nil
 		},
 	}

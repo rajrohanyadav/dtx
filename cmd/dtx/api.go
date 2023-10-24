@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +25,6 @@ func newAPICmd() *cobra.Command {
 		Short: "api [get|post|put|delete]",
 		Long:  `api [get|post|put|delete]. Not implemented yet`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("api called")
 			return nil
 		},
 	}

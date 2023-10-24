@@ -1,4 +1,4 @@
-package utils
+package cmd
 
 import "github.com/spf13/cobra"
 
@@ -6,14 +6,14 @@ var typeFlag string
 var stringFlag string
 var numberFlag int
 
-func AddTypeFlag(cmd *cobra.Command) {
+func addTypeFlag(cmd *cobra.Command) {
 	cmd.Flags().StringVarP(&typeFlag, "type", "t", "", "type of input [b64|jwt]")
 }
 
-func AddStringFlag(cmd *cobra.Command) {
+func addStringFlag(cmd *cobra.Command) {
 	cmd.Flags().StringVarP(&stringFlag, "str", "s", "", "string input")
 }
 
-func AddNumberFlag(cmd *cobra.Command) {
+func addNumberFlag(cmd *cobra.Command) {
 	cmd.Flags().IntVarP(&numberFlag, "count", "n", 1, "number of outputs required")
 }

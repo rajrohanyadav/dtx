@@ -5,11 +5,12 @@ import (
 	"testing"
 )
 
-func TestRootCmd_Execute(t *testing.T) {
-	cmd := newRootCommand()
-
+func TestDecodeCmd_Execute(t *testing.T) {
+	cmd := newDecodeCmd()
 	var stdout bytes.Buffer
 	cmd.SetOut(&stdout)
+
+	cmd.SetArgs([]string{"-t", "b64", "-s", "dGVzdA=="})
 
 	err := cmd.Execute()
 
@@ -17,7 +18,7 @@ func TestRootCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := ""
+	expectedOutput := "test\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
 	}
