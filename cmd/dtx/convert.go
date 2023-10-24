@@ -21,16 +21,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// apiCmd represents the api command
-var apiCmd = &cobra.Command{
-	Use:   "api",
-	Short: "api [get|post|put|delete]",
-	Long:  `api [get|post|put|delete]. Not implemented yet`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("api called")
-	},
-}
-
-func init() {
-	rootCmd.AddCommand(apiCmd)
+func newConvertCmd() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "convert",
+		Short: "convert from t1 to t2",
+		Long:  `convert from t1 to t2. Not implemented yet`,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			fmt.Println("convert called")
+			return nil
+		},
+	}
+	return cmd
 }
