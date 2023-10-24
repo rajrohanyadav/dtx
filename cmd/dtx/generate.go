@@ -33,17 +33,17 @@ func newGenerateCmd() *cobra.Command {
 				num, _ := cmd.Flags().GetInt("count")
 				res, err := utils.GenerateUUID(num)
 				if err != nil {
-					fmt.Println(err)
+					fmt.Fprintln(cmd.OutOrStdout(), err)
 					return err
 				}
 				for _, s := range res {
-					fmt.Println(s)
+					fmt.Fprintln(cmd.OutOrStdout(), s)
 				}
 			}
 			return nil
 		},
 	}
-	utils.AddTypeFlag(cmd)
-	utils.AddNumberFlag(cmd)
+	addTypeFlag(cmd)
+	addNumberFlag(cmd)
 	return cmd
 }

@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestRootCmd_Execute(t *testing.T) {
-	cmd := newRootCommand()
+func TestGenerateCmd_Execute(t *testing.T) {
+	cmd := newGenerateCmd()
 
 	var stdout bytes.Buffer
 	cmd.SetOut(&stdout)

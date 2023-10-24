@@ -33,16 +33,16 @@ func newDecodeCmd() *cobra.Command {
 				b64Str, _ := cmd.Flags().GetString("str")
 				res, err := utils.DecodeB64ToString(b64Str)
 				if err != nil {
-					fmt.Println("Error decoding from base 64")
+					fmt.Fprintln(cmd.OutOrStdout(), "Error decoding from base 64")
 					return err
 				}
-				fmt.Println(res)
+				fmt.Fprintln(cmd.OutOrStdout(), res)
 			}
 			return nil
 		},
 	}
-	utils.AddTypeFlag(cmd)
-	utils.AddStringFlag(cmd)
+	addTypeFlag(cmd)
+	addStringFlag(cmd)
 	return cmd
 }
 

@@ -5,9 +5,8 @@ import (
 	"testing"
 )
 
-func TestRootCmd_Execute(t *testing.T) {
-	cmd := newRootCommand()
-
+func TestCoverageCmd_Execute(t *testing.T) {
+	cmd := newConvertCmd()
 	var stdout bytes.Buffer
 	cmd.SetOut(&stdout)
 

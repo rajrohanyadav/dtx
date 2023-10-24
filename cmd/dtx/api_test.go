@@ -5,9 +5,8 @@ import (
 	"testing"
 )
 
-func TestRootCmd_Execute(t *testing.T) {
-	cmd := newRootCommand()
-
+func TestApiCmd_Execute(t *testing.T) {
+	cmd := newAPICmd()
 	var stdout bytes.Buffer
 	cmd.SetOut(&stdout)
 
