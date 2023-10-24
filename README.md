@@ -9,8 +9,7 @@
 [![codecov](https://codecov.io/gh/rajrohanyadav/dtx/graph/badge.svg?token=KD26F6HJY4)](https://codecov.io/gh/rajrohanyadav/dtx)
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
-<details>
-<summary>Table of Contents</summary>
+## Table of Contents
 
 <ol>
     <li>
@@ -34,8 +33,6 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-
-</details>
 
 ## About the Project
 
