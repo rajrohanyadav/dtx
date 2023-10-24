@@ -6,7 +6,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 ![Build workflow][build-workflow-url]
-![Coverage workflow][coverage-workflow-url]
+[![codecov](https://codecov.io/gh/rajrohanyadav/dtx/graph/badge.svg?token=KD26F6HJY4)](https://codecov.io/gh/rajrohanyadav/dtx)
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <details>
