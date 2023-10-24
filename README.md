@@ -6,6 +6,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 ![Build workflow][build-workflow-url]
+![Coverage workflow][coverage-workflow-url]
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <details>
