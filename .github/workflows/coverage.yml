@@ -24,8 +24,7 @@ jobs:
             go test -v ./... -covermode=count -coverprofile=coverage.out
             go tool cover -func=coverage.out -o=coverage.out
 
-
-        - name: Go Coverage Badge
-          uses: tj-actions/coverage-badge-go@v2
-          with:
-            filename: coverage.out
+        - name: Upload coverage reports to Codecov
+          uses: codecov/codecov-action@v3
+          env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
