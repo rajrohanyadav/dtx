@@ -29,15 +29,22 @@ func newGenerateCmd() *cobra.Command {
 		Long:  `Generate the specified resource.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			typ, _ := cmd.Flags().GetString("type")
-			if typ == "uuid" {
-				num, _ := cmd.Flags().GetInt("count")
-				res, err := utils.GenerateUUID(num)
-				if err != nil {
-					fmt.Fprintln(cmd.OutOrStdout(), err)
-					return err
+			switch typ {
+			case "uuid":
+				{
+					num, _ := cmd.Flags().GetInt("count")
+					res, err := utils.GenerateUUID(num)
+					if err != nil {
+						fmt.Fprintln(cmd.OutOrStdout(), err)
+						return err
+					}
+					for _, s := range res {
+						fmt.Fprintln(cmd.OutOrStdout(), s)
+					}
 				}
-				for _, s := range res {
-					fmt.Fprintln(cmd.OutOrStdout(), s)
+			default:
+				if err := cmd.Help(); err != nil {
+					return err
 				}
 			}
 			return nil

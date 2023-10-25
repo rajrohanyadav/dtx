@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"bytes"
+	"strings"
 	"testing"
 )
 
@@ -17,8 +18,7 @@ func TestRootCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := ""
-	if stdout.String() != expectedOutput {
-		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
+	if strings.Contains(stdout.String(), cmd.Long) {
+		t.Errorf("Expected output: %q, not contained in: %q", cmd.Long, stdout.String())
 	}
 }

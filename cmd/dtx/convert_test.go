@@ -16,7 +16,7 @@ func TestCoverageCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := ""
+	expectedOutput := "convert from t1 to t2. Not implemented yet\n\nUsage:\n  convert [flags]\n\nFlags:\n  -h, --help   help for convert\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
 	}

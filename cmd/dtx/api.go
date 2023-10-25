@@ -25,6 +25,9 @@ func newAPICmd() *cobra.Command {
 		Short: "api [get|post|put|delete]",
 		Long:  `api [get|post|put|delete]. Not implemented yet`,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
 			return nil
 		},
 	}

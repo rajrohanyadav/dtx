@@ -27,11 +27,21 @@ func newRootCommand() *cobra.Command {
 		Use:   "dtx",
 		Short: "Dev 10X",
 		Long: `
-		Dev 10X provides a suit of tools commonly needed by a develop.
+				 ___   _____ _    _ 
+				(  _ \(_   _) )  ( )
+				| | ) | | |  \ \/ / 
+				| | | ) | |   )  (  
+				| |_) | | |  / /\ \ 
+				(____/  (_) (_)  (_)
+
+		Dev 10X provides a suit of tools commonly needed by a developer.
 		Easy to use in the terminal as standalone utility or piping outputs from other commands.
 		Go to https://rajrohanyadav.github.io/dtx/ for detailed examples and usecases.
 		`,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
 			return nil
 		},
 	}
@@ -48,7 +58,7 @@ func newRootCommand() *cobra.Command {
 	cmd.AddCommand(apiCmd)
 	cmd.AddCommand(generateCmd)
 
-	cmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// cmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
 	return cmd
 }
