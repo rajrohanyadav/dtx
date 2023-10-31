@@ -16,17 +16,68 @@ limitations under the License.
 package cmd
 
 import (
+	"encoding/json"
+	"fmt"
+	"io"
+
+	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
 )
 
 func newAPICmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "api",
+		Use:   "api [flags] url",
 		Short: "api [get|post|put|delete]",
-		Long:  `api [get|post|put|delete]. Not implemented yet`,
+		Long: `api [get|post|put|delete]
+			Only GET is implemented, others are not implemented yet.
+		`,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			op, _ := cmd.Flags().GetString("type")
+			switch op {
+			case "get":
+				{
+					url, _ := cmd.Flags().GetString("str")
+					resp, err := getAPI(url)
+					if err != nil {
+						return err
+					}
+					fmt.Fprintln(cmd.OutOrStdout(), resp)
+				}
+			default:
+				if err := cmd.Help(); err != nil {
+					return err
+				}
+			}
 			return nil
 		},
 	}
+	addTypeFlag(cmd)
+	addStringFlag(cmd)
 	return cmd
+}
+
+func getAPI(url string) (string, error) {
+	resp, err := utils.MakeGetRequest(url)
+	if err != nil {
+		return "", err
+	}
+	// TODO: check headers to see what kind of content we are getting
+	// TODO: if json -> print or save json
+	// TODO: if xml -> print or save xml
+	// TODO: if file -> save file
+	defer resp.Body.Close()
+	responseJSON, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return "", err
+	}
+	var data interface{}
+	err = json.Unmarshal(responseJSON, &data)
+	if err != nil {
+		return "", err
+	}
+	prettyJSON, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return "", err
+	}
+	return string(prettyJSON), nil
 }

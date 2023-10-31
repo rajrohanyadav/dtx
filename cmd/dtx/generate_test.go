@@ -17,7 +17,7 @@ func TestGenerateCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := ""
+	expectedOutput := "Generate the specified resource.\n\nUsage:\n  generate [flags]\n\nFlags:\n  -n, --count int     number of outputs required (default 1)\n  -h, --help          help for generate\n  -t, --type string   type of input [b64|jwt]\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
 	}

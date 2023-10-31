@@ -29,14 +29,21 @@ func newDecodeCmd() *cobra.Command {
 		Long:  `Decode [b64|jwt]`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			op, _ := cmd.Flags().GetString("type")
-			if op == "b64" {
-				b64Str, _ := cmd.Flags().GetString("str")
-				res, err := utils.DecodeB64ToString(b64Str)
-				if err != nil {
-					fmt.Fprintln(cmd.OutOrStdout(), "Error decoding from base 64")
+			switch op {
+			case "b64":
+				{
+					b64Str, _ := cmd.Flags().GetString("str")
+					res, err := utils.DecodeB64ToString(b64Str)
+					if err != nil {
+						fmt.Fprintln(cmd.OutOrStdout(), "Error decoding from base 64")
+						return err
+					}
+					fmt.Fprintln(cmd.OutOrStdout(), res)
+				}
+			default:
+				if err := cmd.Help(); err != nil {
 					return err
 				}
-				fmt.Fprintln(cmd.OutOrStdout(), res)
 			}
 			return nil
 		},
@@ -45,7 +52,3 @@ func newDecodeCmd() *cobra.Command {
 	addStringFlag(cmd)
 	return cmd
 }
-
-// func runDecodeCmd() {
-
-// }

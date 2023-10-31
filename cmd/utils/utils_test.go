@@ -2,6 +2,8 @@ package utils
 
 import (
 	"fmt"
+	"net/http"
+	"net/http/httptest"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -82,5 +84,19 @@ func TestGenerateUUID(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			fmt.Println(tt.name)
 		})
+	}
+}
+
+func TestMakeGetRequest(t *testing.T) {
+	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer mockServer.Close()
+	res, err := MakeGetRequest(mockServer.URL)
+	if err != nil {
+		t.Errorf("Unexpected error: %v", err)
+	}
+	if res.StatusCode != http.StatusOK {
+		t.Errorf("Expected status code %d, got %d", http.StatusOK, res.StatusCode)
 	}
 }

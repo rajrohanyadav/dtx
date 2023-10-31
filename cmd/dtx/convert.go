@@ -25,6 +25,9 @@ func newConvertCmd() *cobra.Command {
 		Short: "convert from t1 to t2",
 		Long:  `convert from t1 to t2. Not implemented yet`,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			if err := cmd.Help(); err != nil {
+				return err
+			}
 			return nil
 		},
 	}

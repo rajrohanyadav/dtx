@@ -2,6 +2,7 @@ package utils
 
 import (
 	b64 "encoding/base64"
+	"net/http"
 
 	"github.com/google/uuid"
 )
@@ -25,4 +26,17 @@ func GenerateUUID(n int) ([]string, error) {
 		uuids = append(uuids, id.String())
 	}
 	return uuids, nil
+}
+
+func MakeGetRequest(uri string) (*http.Response, error) {
+	req, err := http.NewRequest(http.MethodGet, uri, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	return res, nil
 }
