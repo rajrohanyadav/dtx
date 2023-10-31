@@ -1,13 +1,35 @@
 package utils
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 )
+
+type mockHTTPClient struct{}
+
+func (m *mockHTTPClient) Do(req *http.Request) (*http.Response, error) {
+	return httptest.NewRecorder().Result(), nil
+}
+
+func (m *mockHTTPClient) RoundTrip(req *http.Request) (*http.Response, error) {
+	return httptest.NewRecorder().Result(), nil
+}
+
+type mockHTTPClientWithError struct{}
+
+func (m *mockHTTPClientWithError) Do(req *http.Request) (*http.Response, error) {
+	return nil, errors.New("custom error from mock client")
+}
+
+func (m *mockHTTPClientWithError) RoundTrip(req *http.Request) (*http.Response, error) {
+	return nil, errors.New("custom error from mock client")
+}
 
 func TestEncodeStringToB64(t *testing.T) {
 	tests := []struct {
@@ -72,31 +94,46 @@ func TestDecodeB64ToString(t *testing.T) {
 }
 
 func TestGenerateUUID(t *testing.T) {
-	tests := []struct {
-		name string
-	}{
-		{
-			name: "test",
-		},
+	uuids, err := GenerateUUID(5)
+
+	if err != nil {
+		t.Errorf("Error generating UUIDs: %v", err)
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			fmt.Println(tt.name)
-		})
+	if len(uuids) != 5 {
+		t.Errorf("Expected 5 UUIDs, but got %d", len(uuids))
+	}
+
+	for _, u := range uuids {
+		_, err := uuid.Parse(u)
+		if err != nil {
+			t.Errorf("Invalid UUID: %v", err)
+		}
 	}
 }
 
 func TestMakeGetRequest(t *testing.T) {
-	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-	}))
-	defer mockServer.Close()
-	res, err := MakeGetRequest(mockServer.URL)
+	mockClient := &http.Client{
+		Transport: &mockHTTPClient{},
+	}
+
+	http.DefaultClient = mockClient
+
+	uri := "https://example.com"
+	res, err := MakeGetRequest(uri)
 	if err != nil {
 		t.Errorf("Unexpected error: %v", err)
 	}
 	if res.StatusCode != http.StatusOK {
 		t.Errorf("Expected status code %d, got %d", http.StatusOK, res.StatusCode)
+	}
+
+	invalidURI := "invalid-url"
+	http.DefaultClient = &http.Client{
+		Transport: &mockHTTPClientWithError{},
+	}
+	_, err = MakeGetRequest(invalidURI)
+	if err == nil {
+		t.Error("Expected an error from the mock HTTP client")
 	}
 }

@@ -2,8 +2,25 @@ package cmd
 
 import (
 	"bytes"
+	"strings"
 	"testing"
 )
+
+func TestApiCmd_Help(t *testing.T) {
+	cmd := newAPICmd()
+	var stdout bytes.Buffer
+	cmd.SetOut(&stdout)
+
+	err := cmd.Execute()
+
+	if err != nil {
+		t.Errorf("Unexpected error: %v", err)
+	}
+
+	if strings.Contains(stdout.String(), cmd.Long) {
+		t.Errorf("Expected output: %q, not contained in: %q", cmd.Long, stdout.String())
+	}
+}
 
 func TestApiCmd_Execute(t *testing.T) {
 	cmd := newAPICmd()
