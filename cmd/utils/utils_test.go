@@ -90,7 +90,6 @@ func TestGenerateUUID(t *testing.T) {
 func TestMakeGetRequest(t *testing.T) {
 	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("Mock response"))
 	}))
 	defer mockServer.Close()
 	res, err := MakeGetRequest(mockServer.URL)

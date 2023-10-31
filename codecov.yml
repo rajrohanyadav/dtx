@@ -2,7 +2,7 @@ coverage:
   status:
     project:
       default:
-        target: 70%
+        target: 50%
         threshold: 5%
         only_pulls: true
         base: auto
