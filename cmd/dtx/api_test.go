@@ -10,14 +10,17 @@ func TestApiCmd_Execute(t *testing.T) {
 	var stdout bytes.Buffer
 	cmd.SetOut(&stdout)
 
+	// TODO: use mocks instead
+	cmd.SetArgs([]string{"-t", "get", "-s", "https://jsonplaceholder.typicode.com/todos/1"})
+
 	err := cmd.Execute()
 
 	if err != nil {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := "api [get|post|put|delete]. Not implemented yet\n\nUsage:\n  api [flags]\n\nFlags:\n  -h, --help   help for api\n"
+	expectedOutput := "{\n  \"completed\": false,\n  \"id\": 1,\n  \"title\": \"delectus aut autem\",\n  \"userId\": 1\n}\n"
 	if stdout.String() != expectedOutput {
-		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
+		t.Errorf("Expected output: %q, not contained in: %q", cmd.Long, stdout.String())
 	}
 }
