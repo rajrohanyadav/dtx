@@ -16,7 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
+	"strings"
 
 	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
@@ -34,13 +34,7 @@ func newGenerateCmd() *cobra.Command {
 				{
 					num, _ := cmd.Flags().GetInt("count")
 					res, err := utils.GenerateUUID(num)
-					if err != nil {
-						fmt.Fprintln(cmd.OutOrStdout(), err)
-						return err
-					}
-					for _, s := range res {
-						fmt.Fprintln(cmd.OutOrStdout(), s)
-					}
+					utils.WriteOutput(cmd.OutOrStdout(), strings.Join(res, "\n"), err)
 				}
 			default:
 				if err := cmd.Help(); err != nil {

@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
 )
@@ -34,11 +32,7 @@ func newEncodeCmd() *cobra.Command {
 				{
 					str, _ := cmd.Flags().GetString("str")
 					res, err := utils.EncodeStringToB64(str)
-					if err != nil {
-						fmt.Println("Error converting to base 64")
-						return err
-					}
-					fmt.Fprintln(cmd.OutOrStdout(), res)
+					utils.WriteOutput(cmd.OutOrStdout(), res, err)
 				}
 			default:
 				if err := cmd.Help(); err != nil {

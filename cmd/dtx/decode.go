@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/rajrohanyadav/dtx/cmd/utils"
 	"github.com/spf13/cobra"
 )
@@ -34,11 +32,8 @@ func newDecodeCmd() *cobra.Command {
 				{
 					b64Str, _ := cmd.Flags().GetString("str")
 					res, err := utils.DecodeB64ToString(b64Str)
-					if err != nil {
-						fmt.Fprintln(cmd.OutOrStdout(), "Error decoding from base 64")
-						return err
-					}
-					fmt.Fprintln(cmd.OutOrStdout(), res)
+					// TODO: send custom error messages
+					utils.WriteOutput(cmd.OutOrStdout(), res, err)
 				}
 			default:
 				if err := cmd.Help(); err != nil {

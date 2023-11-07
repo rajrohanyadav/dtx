@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 
 	"github.com/rajrohanyadav/dtx/cmd/utils"
@@ -38,10 +37,7 @@ func newAPICmd() *cobra.Command {
 				{
 					url, _ := cmd.Flags().GetString("str")
 					resp, err := getAPI(url)
-					if err != nil {
-						return err
-					}
-					fmt.Fprintln(cmd.OutOrStdout(), resp)
+					utils.WriteOutput(cmd.OutOrStdout(), resp, err)
 				}
 			default:
 				if err := cmd.Help(); err != nil {
