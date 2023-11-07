@@ -1,9 +1,27 @@
+/*
+Copyright © 2023 Rohan Yadav rajrohanyadav@gmail.com
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package utils
 
 import (
 	b64 "encoding/base64"
+	"fmt"
+	"io"
 	"net/http"
 
+	"github.com/fatih/color"
 	"github.com/google/uuid"
 )
 
@@ -39,4 +57,16 @@ func MakeGetRequest(uri string) (*http.Response, error) {
 		return nil, err
 	}
 	return res, nil
+}
+
+func WriteOutput(out io.Writer, resp string, err error) {
+	warn := color.New(color.Bold, color.FgRed).FprintlnFunc()
+	success := color.New(color.Bold, color.FgGreen).FprintlnFunc()
+	if err != nil {
+		warn(out, "Error:")
+		fmt.Fprintf(out, "something went wrong: %s\n", err)
+	} else {
+		success(out, "Output:")
+		fmt.Fprintf(out, "%s\n", resp)
+	}
 }

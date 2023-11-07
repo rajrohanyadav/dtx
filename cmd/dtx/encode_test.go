@@ -18,7 +18,7 @@ func TestEncodeCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := "dGVzdA==\n"
+	expectedOutput := "Output:\ndGVzdA==\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
 	}

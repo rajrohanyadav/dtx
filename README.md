@@ -80,11 +80,11 @@ _For detailed usecase and  examples, please refer to the [Documentation](https:/
   - [ ] Number base
   - [ ] cron parser
 - [ ] Encoder/Decoders
-  - [ ] Base64
+  - [x] Base64
   - [ ] JWT
 - [ ] Generators
   - [ ] Hash
-  - [ ] UUID
+  - [x] UUID
   - [ ] Lorem Ipsum
   - [ ] Checksum
 - [ ] Formatters

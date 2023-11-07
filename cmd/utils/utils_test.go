@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"net/http"
@@ -135,5 +136,20 @@ func TestMakeGetRequest(t *testing.T) {
 	_, err = MakeGetRequest(invalidURI)
 	if err == nil {
 		t.Error("Expected an error from the mock HTTP client")
+	}
+}
+
+func TestWriteOutput(t *testing.T) {
+	var stdout bytes.Buffer
+	var stdout2 bytes.Buffer
+	WriteOutput(&stdout, "test", nil)
+	expectedOutput := "Output:\ntest\n"
+	if stdout.String() != expectedOutput {
+		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
+	}
+	WriteOutput(&stdout2, "", errors.New("error"))
+	expectedOutput2 := "Error:\nsomething went wrong: error\n"
+	if stdout2.String() != expectedOutput2 {
+		t.Errorf("Expected output: %q, but got: %q", expectedOutput2, stdout2.String())
 	}
 }

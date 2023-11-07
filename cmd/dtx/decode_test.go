@@ -18,7 +18,7 @@ func TestDecodeCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := "test\n"
+	expectedOutput := "Output:\ntest\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, but got: %q", expectedOutput, stdout.String())
 	}

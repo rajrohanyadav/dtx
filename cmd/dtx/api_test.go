@@ -36,7 +36,7 @@ func TestApiCmd_Execute(t *testing.T) {
 		t.Errorf("Unexpected error: %v", err)
 	}
 
-	expectedOutput := "{\n  \"completed\": false,\n  \"id\": 1,\n  \"title\": \"delectus aut autem\",\n  \"userId\": 1\n}\n"
+	expectedOutput := "Output:\n{\n  \"completed\": false,\n  \"id\": 1,\n  \"title\": \"delectus aut autem\",\n  \"userId\": 1\n}\n"
 	if stdout.String() != expectedOutput {
 		t.Errorf("Expected output: %q, not contained in: %q", cmd.Long, stdout.String())
 	}
